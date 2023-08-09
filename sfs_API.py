@@ -3,12 +3,22 @@ from flask import Flask, request, jsonify , render_template, redirect, url_for
 app = Flask(__name__)
 
 car_dict = {
-    "Cultus": "270.5",
-    "Mehran": "200.5",
-    "Corolla": "400.5",
-    "Civic": "500.5",
-    "City": "450.5"
+#     "Cultus": "Small",
+#     "Mehran": "Small",
+#     "Corolla": "Large",
+#     "Civic": "Large",
+#     "City 2007": "Medium"
 }
+
+@app.route('/', methods=['GET'])
+def get_car_price():
+
+    response = {
+        "car_model": 'test',
+        "price": 300000
+    }
+    return jsonify(response), 200
+
 
 @app.route('/get_car_price', methods=['GET'])
 def get_car_price():
