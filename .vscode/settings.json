@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/bb7c4f13-e399-44bf-80bf-c6211add26d7/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/sfsgovtportal",
-    "appService.deploySubpath": "."
-}
