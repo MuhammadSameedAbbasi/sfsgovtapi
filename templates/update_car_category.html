@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Update Car Price</title>
+    <title>Update Car Category</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,19 +68,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Update Car Price</h1>
-        <form method="POST" action="/update_car_price">
+        <h1>Update Car Category</h1>
+        <form method="POST" action="/">
             <label for="model">Car Model:</label>
             <input type="text" name="model" required>
-            <label for="price">Price:</label>
-            <input type="text" name="price" required>
+            <label for="category">Category:</label>
+            <input type="text" name="category" required>
             <input type="submit" value="Update">
         </form>
 
         <h2>Current Car Dictionary:</h2>
         <ul>
-            {% for model, price in car_dict.items() %}
-            <li><strong>{{ model }}:</strong> {{ price }}</li>
+            {% for model, category in car_dict.items() %}
+            <li><strong>{{ model }}:</strong> {{ category }}</li>
             {% endfor %}
         </ul>
     </div>

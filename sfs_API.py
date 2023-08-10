@@ -32,8 +32,8 @@ def load_category_list():
     return jsonify({"message": "Category list loaded successfully"}), 200
 
 
-@app.route('/get_car_price', methods=['GET'])
-def get_car_price():
+@app.route('/get_car_category', methods=['GET'])
+def get_car_category():
     input_data = request.args.get("model")
 
     if not input_data:
@@ -42,20 +42,26 @@ def get_car_price():
     output_data = car_dict.get(input_data, "Not found")
     response = {
         "car_model": input_data,
-        "price": output_data
+        "category": output_data
     }
     return jsonify(response), 200
 
 @app.route('/', methods=['GET', 'POST'])
-def update_car_price():
+def update_car_category():
     load_category_list()
     if request.method == 'POST':
         model = request.form['model']
-        price = request.form['price']
-        car_dict[model] = price
-        return redirect(url_for('update_car_price'))
+        category = request.form['category']
+        car_dict[model] = category
 
-    return render_template('update_car_price.html', car_dict=car_dict)
+        bucket = storage.bucket()
+        blob = bucket.blob('category_list.json')
+        blob.upload_from_string(json.dumps(car_dict))
+
+
+        return redirect(url_for('update_car_category'))
+
+    return render_template('update_car_category.html', car_dict=car_dict)
 
 if __name__ == '__main__':
     app.run(debug=True)
