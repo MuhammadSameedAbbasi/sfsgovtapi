@@ -27,4 +27,4 @@ jobs:
       - name: Deploy Flask app
         run: |
           pip install gunicorn
-          gunicorn -b :$PORT sfs_API:app
+          gunicorn -b 5900:$PORT sfs_API:app
