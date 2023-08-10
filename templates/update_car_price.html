@@ -80,7 +80,7 @@
         <h2>Current Car Dictionary:</h2>
         <ul>
             {% for model, price in car_dict.items() %}
-            <li><strong>{{ model }}:</strong> ${{ price }}</li>
+            <li><strong>{{ model }}:</strong> {{ price }}</li>
             {% endfor %}
         </ul>
     </div>
