@@ -6,6 +6,7 @@ import json
 
 app = Flask(__name__)
 
+
 # car_dict = {}
 #     "Cultus": "Small",
 #     "Mehran": "Small",
@@ -14,7 +15,7 @@ app = Flask(__name__)
 #     "City 2007": "Medium"
 # }
 
-cred = credentials.Certificate("subsidized-fueling-system-firebase-adminsdk-e5hzp-38a5c23549.json")
+cred = credentials.Certificate("templates/subsidized-fueling-system-firebase-adminsdk-e5hzp-38a5c23549.json")
 
 firebase_admin.initialize_app( cred, {'storageBucket': 'subsidized-fueling-system.appspot.com'})
 
